@@ -18,9 +18,8 @@
     // 👇 key bits for the alias
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "@public/*": ["public/*"]   // enables: import x from "@public/images/..."
     },
     "incremental": true,
     "esModuleInterop": true,
