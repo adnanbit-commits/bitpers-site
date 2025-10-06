@@ -1,0 +1,18 @@
+name: bitpers-https-map
+defaultService: https://www.googleapis.com/compute/v1/projects/bitpers-75854/global/backendServices/bitpers-backend
+
+hostRules:
+- hosts: [www.bitpers.com]
+  pathMatcher: redirect-www
+- hosts: [bitpers.com]
+  pathMatcher: serve-apex
+
+pathMatchers:
+- name: redirect-www
+  defaultUrlRedirect:
+    hostRedirect: bitpers.com
+    httpsRedirect: true
+    redirectResponseCode: MOVED_PERMANENTLY_DEFAULT
+    stripQuery: false
+- name: serve-apex
+  defaultService: https://www.googleapis.com/compute/v1/projects/bitpers-75854/global/backendServices/bitpers-backend
