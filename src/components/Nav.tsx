@@ -10,7 +10,7 @@ export function Nav() {
         <Image
           src={logo}
           alt="Bitpers logo"
-          height={24}               // tweak: 20–32 looks good
+          height={33}               // tweak: 20–32 looks good
           // width is auto from intrinsic ratio; prevents distortion
           className="block"
           priority={false}

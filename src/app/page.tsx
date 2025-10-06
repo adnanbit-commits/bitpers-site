@@ -4,6 +4,7 @@ import { MotionConfig } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FeatureSection } from "@/components/FeatureSection";
+import { docsUrl } from "@/lib/docs";
 
 import muralsImg from "@public/images/murals.png";
 import memoryImg from "@public/images/memoryboard.png";
@@ -54,11 +55,11 @@ export default function Home() {
             Private (weddings, clubs, classrooms) or public (travel, cars, food).
           </p>
         }
-      docPath="/murals"
-  img={muralsImg}
-  imgAlt="Bitpers mural showing dynamic visual board"
-  imgWidthPx={600}
-  priority
+        docPath={docsUrl.murals}
+        img={muralsImg}
+        imgAlt="Bitpers mural showing dynamic visual board"
+        imgWidthPx={600}
+        priority
       />
 
       <FeatureSection
@@ -70,11 +71,11 @@ export default function Home() {
             Capture trips, friendships, or projects as living stories — not static albums.
           </p>
         }
-        docPath="/memory-boards"
-  img={memoryImg}
-  imgAlt="Memory board timeline"
-  reverse
-  imgWidthPx={600}
+        docPath={docsUrl.memoryBoards}
+        img={memoryImg}
+        imgAlt="Memory board timeline"
+        reverse
+        imgWidthPx={600}
       />
 
       <FeatureSection
@@ -86,10 +87,10 @@ export default function Home() {
             to creators testing concepts to teams refining campaigns.
           </p>
         }
-        docPath="/collab"
-  img={collabImg}
-  imgAlt="Collaboration tools preview"
-  imgWidthPx={600}
+        docPath={docsUrl.collab}
+        img={collabImg}
+        imgAlt="Collaboration tools preview"
+        imgWidthPx={600}
       />
 
       <FeatureSection
@@ -101,11 +102,11 @@ export default function Home() {
             uploads and curated community timelines that outlive the event.
           </p>
         }
-         docPath="/events"
-  img={eventsImg}
-  imgAlt="Event mural / uploads"
-  reverse
-  imgWidthPx={600}
+        docPath={docsUrl.events}
+        img={eventsImg}
+        imgAlt="Event mural / uploads"
+        reverse
+        imgWidthPx={600}
       />
 
       <FeatureSection
@@ -117,10 +118,10 @@ export default function Home() {
             Enables private “photos of me” and mural discovery like “find me in the crowd.”
           </p>
         }
-     docPath="/face-hunt"
-  img={facehuntImg}
-  imgAlt="Consent-first face discovery"
-  imgWidthPx={600}
+        docPath={docsUrl.faceHunt}
+        img={facehuntImg}
+        imgAlt="Consent-first face discovery"
+        imgWidthPx={600}
       />
     </MotionConfig>
   );

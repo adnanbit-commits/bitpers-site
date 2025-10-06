@@ -32,6 +32,8 @@ export function FeatureSection({
   const fallback = Math.round(Math.min(img.width * 0.66, 560));
   const widthPx = imgWidthPx ?? fallback;
 
+  const isExternal = /^https?:\/\//i.test(docPath);
+
   return (
     <section
       className={[
@@ -49,6 +51,8 @@ export function FeatureSection({
         <div className="mt-6">
           <Link
             href={docPath}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             className="inline-flex items-center gap-2 rounded-xl px-4 py-2 ring-1 ring-zinc-700"
           >
             Explore details <ArrowRight className="size-4" />
