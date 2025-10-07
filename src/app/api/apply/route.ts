@@ -1,19 +1,23 @@
-// src/app/api/apply/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { applySchema } from "@/lib/validators";
-
-const APPLY_ENDPOINT = process.env.APPLY_ENDPOINT!; // your /exec URL
 
 export async function POST(req: NextRequest) {
   try {
     const data = applySchema.parse(await req.json()); // validate first
+
+    const APPLY_ENDPOINT = process.env.APPLY_ENDPOINT;
+    if (!APPLY_ENDPOINT) {
+      return NextResponse.json(
+        { ok: false, error: "missing APPLY_ENDPOINT" },
+        { status: 500 }
+      );
+    }
 
     // Send as text/plain to Apps Script
     const r = await fetch(APPLY_ENDPOINT, {
       method: "POST",
       headers: { "content-type": "text/plain;charset=utf-8" },
       body: JSON.stringify(data),
-      // No special redirect/cors options needed from server-side
     });
 
     const text = await r.text();

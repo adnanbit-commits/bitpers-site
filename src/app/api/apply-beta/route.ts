@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { betaSchema } from "@/lib/validators";
 
-const APPLY_BETA_ENDPOINT = process.env.APPLY_BETA_ENDPOINT!;
-
 const personaMap = {
   creator: "Creator / Photographer / Studio",
   student: "Student / Club / College team",
@@ -25,6 +23,7 @@ export async function POST(req: NextRequest) {
   try {
     const data = betaSchema.parse(await req.json());
 
+    const APPLY_BETA_ENDPOINT = process.env.APPLY_BETA_ENDPOINT;
     if (!APPLY_BETA_ENDPOINT) {
       return NextResponse.json(
         { ok: false, error: "missing APPLY_BETA_ENDPOINT" },
@@ -41,7 +40,6 @@ export async function POST(req: NextRequest) {
       ts: data.ts ?? Date.now(),
     };
     console.log("[BETA PAYLOAD]", payload);
-
 
     const r = await fetch(APPLY_BETA_ENDPOINT, {
       method: "POST",
@@ -60,5 +58,4 @@ export async function POST(req: NextRequest) {
     console.error("[BETA invalid]", e);
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
   }
-  
 }
