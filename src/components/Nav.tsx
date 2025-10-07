@@ -2,6 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "@public/images/bitpers.png";
 
+export function NavLinks({ className = "" }: { className?: string }) {
+  return (
+    <nav className={`flex gap-5 text-sm ${className}`}>
+      <Link href="/founder_team" className="text-red-400 hover:text-blue-600 transition">
+        Team
+      </Link>
+    </nav>
+  );
+}
+
 export function Nav() {
   return (
     <header className="flex items-center justify-between py-5">
@@ -18,9 +28,7 @@ export function Nav() {
         <span className="font-bold text-lg">Bitpers</span>
       </Link>
 
-      <nav className="flex gap-5 text-sm text-zinc-300">
-        {/* add links later */}
-      </nav>
+      <NavLinks />
     </header>
   );
 }

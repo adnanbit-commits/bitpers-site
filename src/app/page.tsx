@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FeatureSection } from "@/components/FeatureSection";
 import { docsUrl } from "@/lib/docs";
+import Image from "next/image";
 
 import muralsImg from "@public/images/murals.png";
 import memoryImg from "@public/images/memoryboard.png";
@@ -16,7 +17,7 @@ export default function Home() {
   return (
     <MotionConfig>
       {/* Hero */}
-      <section className="text-center py-16">
+      <section className="text-center pt-16 pb-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
           The Visual Layer for Human Connection
         </h1>
@@ -33,17 +34,43 @@ export default function Home() {
             Build With Us <ArrowRight className="size-4" />
           </Link>
           <Link
-            href="/donate"
+            href="/apply"
             className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 ring-1 ring-zinc-700"
           >
-            Support
+            Apply for Beta
           </Link>
         </div>
 
-        <p className="mt-3 text-xs text-zinc-500">
+        <p className="mt-2 mb-0 text-xs text-zinc-500">
           Prototype phase • Android app in progress • Building in public
         </p>
       </section>
+
+      {/* Discord CTA */}
+      <div className="mt-1 flex justify-center">
+        <Link
+          href="https://discord.gg/U9tQBpZt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-3 rounded-2xl px-4 py-3 ring-1 ring-zinc-800 hover:bg-zinc-900/40"
+          aria-label="Join the Bitpers Discord"
+        >
+          <Image
+            src="/images/discord.png"
+            alt="Discord"
+            width={20}
+            height={20}
+            className="opacity-80 group-hover:opacity-100"
+          />
+          <span className="text-sm">
+            Contribute or Witness Devlopment on Discord
+            <span className="hidden sm:inline text-zinc-400">
+              — builders, designers & curious folks welcome
+            </span>
+          </span>
+          <ArrowRight className="size-4 opacity-70 transition group-hover:translate-x-0.5" />
+        </Link>
+      </div>
 
       {/* Modules — container hugs scaled image; no cropping */}
       <FeatureSection
